@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GER2ZS07KE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-GER2ZS07KE');
-  </script>
   <meta charset="utf-8">
-  <meta name="description" content="The resources you request is temporarily unavailable"> 
+  <meta name="description" content="Redirect"> 
   <meta name=" viewport" content="width=device-width, initial-scale=1">
-  <title>Resource Unavailable</title>
+  <title>Redirecting</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -25,27 +16,8 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="error">
-      <h1>🎉</h1>
-      <h2 class="subtitle">Redirecting in <span id="countdown">5</span> seconds...</h2>
-      <p>We've updated our work. We will bring you to the new site.</p>
-    </div>
-    <div class="image">
-      <img src="./static/images/happy_face.png" style="display: block; margin: 0 auto; width: 200px;">
-    </div>
-  </div>
   <script>
-    let countdown = 5;
-    const countdownElement = document.getElementById('countdown');
-    const interval = setInterval(() => {
-      countdown--;
-      countdownElement.textContent = countdown;
-      if (countdown === 0) {
-        clearInterval(interval);
-        window.location.href = 'https://carebench.github.io';
-      }
-    }, 1000);
+    window.location.href = 'redirect.html';
   </script>
 </body>
 </html>
