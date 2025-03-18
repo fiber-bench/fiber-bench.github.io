@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GER2ZS07KE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-GER2ZS07KE');
+  </script>
+  <meta charset="utf-8">
+  <meta name="description" content="FIBER, a FIne-grained BEnchmark for text to
+        video Retrieval">
+  <meta name="keywords" content="Multimodal Large Language Model, Fine-grained Video Retrieval, Multimodal Embedding">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fine-grained Video-Text Retrieval: A New Benchmark and Method</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script defer src="./static/js/sort-table.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="">
+              No more research yet ;) Hardworking on it.
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      updateRowNumbers();
+      document.querySelector("#results").addEventListener("click", updateRowNumbers);
+    });
+
+    function updateRowNumbers() {
+      const rows = document.querySelectorAll("#results tbody tr");
+      rows.forEach((row, index) => {
+        row.querySelector("td").innerText = index + 1;
+      });
+    }
+  </script>
+
+  <style>
+    .no-sort {
+      cursor: default;
+      pointer-events: none;
+      background-image: none !important;
+      /* Remove the sort arrow */
+    }
+  </style>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title is-bold">
+              <span style="vertical-align: middle; justify-content: center; display: flex;"><img src="./static/images/yarn.png" style="height: 1em; margin-right: 10px;"/> FIBER</span>
+            </h1>
+            <h2 class="title is-3 publication-title">Fine-grained Video-Text Retrieval: A New Benchmark and Method</h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a>Yifan Xu</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://leexinhao.github.io/">Xinhao Li</a><sup>1,2</sup>,</span>
+              <span class="author-block">
+                <a>Yichun Yang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a>Rui Huang</a><sup>1</sup>,
+            </span>
+            <span class=" author-block">
+                  <a href="https://wanglimin.github.io/">Limin Wang</a><sup>1,2</sup>,
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>State Key Laboratory for Novel Software Technology, Nanjing
+                University,</span>
+              <span class="author-block"><sup>2</sup>Shanghai AI Laboratory</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2501.00513" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2501.00513" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="unavailable.html" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="unavailable.html" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-fullhd">
+      <div class="hero-body">
+        <img src="./static/images/overview.png"
+          alt="comparison of coarse-grained and fine-grained video-text retrieval" />
+        <h2 class="subtitle has-text-centered">
+          A comparison of coarse-grained and fine-grained video-text retrieval.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              The ability to perceive fine-grained spatial and temporal information is crucial for video-language
+              retrieval. However, popular video retrieval benchmarks, such as MSRVTT and MSVD, fail to efficiently
+              evaluate the fine-grained retrieval ability of VLMs due to a lack of detailed annotations. As a result,
+              VLMs, leveraging strong coarse-grained retrieval ability, are not under full assessment for fine-grained
+              video retrieval.
+            </p>
+            <p>
+              To address this problem, we present <b>FIBER</b>, a <b>FI</b>ne-grained <b>BE</b>nchmark for text to video
+              <b>R</b>etrieval, containing 1000 videos sourced from FineAction. Uniquely, our fine-grained benchmark
+              provides detailed human-annotated spatial annotations and temporal annotations, making it possible to
+              independently evaluate the spatial and temporal bias of VLMs according to the performance. Besides, we
+              employ a text embedding method to unlock the fine-grained video-language understanding of MLLMs.
+            </p>
+            <p>
+              Surprisingly, the experiment results show that our <b>V</b>ideo <b>L</b>arge <b>L</b>anguage
+              <b>E</b>mbedder <b>(VLLE)</b> performs comparably to CLIP-based models on traditional benchmarks and has a
+              stronger capability of fine-grained representation with smaller spatial-temporal bias.
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="columns is-centered">
+        <div class="column is-full has-text-centered content">
+
+          <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
+          <div class="content">
+            <div class="video-duration">
+              <p>
+                <strong>#L:</strong> Context length &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <strong>R1:</strong> Recall@1 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <strong>R5</strong> Recall@5 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <strong>R10</strong> Recall@10 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              </p>
+
+              <p>
+                By default, this leaderboard is sorted by R@1 score. To view other sorted results, please click on the
+                corresponding cell.
+              </p>
+            </div>
+
+            <table class="js-sort-table" id="results" style="margin-left: auto; margin-right: auto;">
+              <thead>
+                <tr>
+                  <th rowspan="3" class="no-sort" style="vertical-align: middle; width: 50px;"
+                    data-js-sort-colNum="none"><strong>#</strong></th>
+                  <th rowspan="3" class="no-sort" style="vertical-align: middle; width: 200px;"
+                    data-js-sort-colNum="none"><strong>Model</strong></th>
+                  <th rowspan="3" class="no-sort" style="vertical-align: middle; width: 50px;"
+                    data-js-sort-colNum="none"><strong>Params</strong></th>
+                  <th rowspan="3" class="no-sort" style="vertical-align: middle; width: 50px;"
+                    data-js-sort-colNum="none"><strong>#L</strong></th>
+                  <th rowspan="3" class="no-sort" style="vertical-align: middle; width: 110px;"
+                    data-js-sort-colNum="none"><strong>Date</strong></th>
+                  <th colspan="6" style="vertical-align: middle; width: 300px;" data-js-sort-colNum="7">
+                    <strong>FIBER</strong>
+                  </th>
+                  <th colspan="6" style="vertical-align: middle; width: 300px;" data-js-sort-colNum="7">
+                    <strong>FIBER-S</strong>
+                  </th>
+                  <th colspan="6" style="vertical-align: middle; width: 300px;" data-js-sort-colNum="7">
+                    <strong>FIBER-T</strong>
+                  </th>
+                </tr>
+                <tr>
+                  <th colspan="3" data-js-sort-colNum="none"><strong>Text to Video</strong></th>
+                  <th colspan="3" data-js-sort-colNum="none"><strong>Video to Text</strong></th>
+                  <th colspan="3" data-js-sort-colNum="none"><strong>Text to Video</strong></th>
+                  <th colspan="3" data-js-sort-colNum="none"><strong>Video to Text</strong></th>
+                  <th colspan="3" data-js-sort-colNum="none"><strong>Text to Video</strong></th>
+                  <th colspan="3" data-js-sort-colNum="none"><strong>Video to Text</strong></th>
+                </tr>
+                <tr>
+                  <th data-js-sort-colNum="5"><strong>R1</strong></th>
+                  <th data-js-sort-colNum="6"><strong>R5</strong></th>
+                  <th data-js-sort-colNum="7"><strong>R10</strong></th>
+                  <th data-js-sort-colNum="8"><strong>R1</strong></th>
+                  <th data-js-sort-colNum="9"><strong>R5</strong></th>
+                  <th data-js-sort-colNum="10"><strong>R10</strong></th>
+                  <th data-js-sort-colNum="11"><strong>R1</strong></th>
+                  <th data-js-sort-colNum="12"><strong>R5</strong></th>
+                  <th data-js-sort-colNum="13"><strong>R10</strong></th>
+                  <th data-js-sort-colNum="14"><strong>R1</strong></th>
+                  <th data-js-sort-colNum="15"><strong>R5</strong></th>
+                  <th data-js-sort-colNum="16"><strong>R10</strong></th>
+                  <th data-js-sort-colNum="17"><strong>R1</strong></th>
+                  <th data-js-sort-colNum="18"><strong>R5</strong></th>
+                  <th data-js-sort-colNum="19"><strong>R10</strong></th>
+                  <th data-js-sort-colNum="20"><strong>R1</strong></th>
+                  <th data-js-sort-colNum="21"><strong>R5</strong></th>
+                  <th data-js-sort-colNum="22"><strong>R10</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://github.com/OpenGVLab/InternVideo" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">InternVideo2<sub>stage2</sub>
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">Shanghai AI Lab</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">1B</td>
+                  <td style="vertical-align: middle;">512</td>
+                  <td style="vertical-align: middle;">2024/04/25</td>
+                  <td style="vertical-align: middle;"><b>72.5</b></td>
+                  <td style="vertical-align: middle;"><b>93.7</b></td>
+                  <td style="vertical-align: middle;"><b>97.3</b></td>
+                  <td style="vertical-align: middle;">69.5</td>
+                  <td style="vertical-align: middle;"><b>94.6</b></td>
+                  <td style="vertical-align: middle;"><b>97.8</b></td>
+                  <td style="vertical-align: middle;">72.4</td>
+                  <td style="vertical-align: middle;"><b>94.2</b></td>
+                  <td style="vertical-align: middle;">97.4</td>
+                  <td style="vertical-align: middle;">62.7</td>
+                  <td style="vertical-align: middle;">90.5</td>
+                  <td style="vertical-align: middle;">95.9</td>
+                  <td style="vertical-align: middle;">46.0</td>
+                  <td style="vertical-align: middle;">80.8</td>
+                  <td style="vertical-align: middle;">91.9</td>
+                  <td style="vertical-align: middle;"><b>46.6</b></td>
+                  <td style="vertical-align: middle;"><b>82.5</b></td>
+                  <td style="vertical-align: middle;">92.5</td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://github.com/OpenGVLab/InternVL" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">InternVL2 (P)
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">Shanghai AI Lab</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">8B</td>
+                  <td style="vertical-align: middle;">&infin;</td>
+                  <td style="vertical-align: middle;">2024/07/04</td>
+                  <td style="vertical-align: middle;">71.6</td>
+                  <td style="vertical-align: middle;">92.2</td>
+                  <td style="vertical-align: middle;">97.0</td>
+                  <td style="vertical-align: middle;"><b>71.6</b></td>
+                  <td style="vertical-align: middle;">92.8</td>
+                  <td style="vertical-align: middle;">97.0</td>
+                  <td style="vertical-align: middle;"><b>76.1</b></td>
+                  <td style="vertical-align: middle;">94.1</td>
+                  <td style="vertical-align: middle;">97.6</td>
+                  <td style="vertical-align: middle;"><b>74.3</b></td>
+                  <td style="vertical-align: middle;"><b>94.5</b></td>
+                  <td style="vertical-align: middle;">97.6</td>
+                  <td style="vertical-align: middle;">46.8</td>
+                  <td style="vertical-align: middle;">76.8</td>
+                  <td style="vertical-align: middle;">89.1</td>
+                  <td style="vertical-align: middle;">46.1</td>
+                  <td style="vertical-align: middle;">77.5</td>
+                  <td style="vertical-align: middle;">89.5</td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://github.com/OpenBMB/MiniCPM-V" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">MiniCPM-V 2.6 (P)
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">OpenBMB</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">8B</td>
+                  <td style="vertical-align: middle;">&infin;</td>
+                  <td style="vertical-align: middle;">2024/08/06</td>
+                  <td style="vertical-align: middle;">71.0</td>
+                  <td style="vertical-align: middle;">92.2</td>
+                  <td style="vertical-align: middle;">97.0</td>
+                  <td style="vertical-align: middle;">69.3</td>
+                  <td style="vertical-align: middle;">92.8</td>
+                  <td style="vertical-align: middle;">97.1</td>
+                  <td style="vertical-align: middle;">71.7</td>
+                  <td style="vertical-align: middle;">93.6</td>
+                  <td style="vertical-align: middle;"><b>98.0</b></td>
+                  <td style="vertical-align: middle;">67.6</td>
+                  <td style="vertical-align: middle;">92.3</td>
+                  <td style="vertical-align: middle;"><b>97.7</b></td>
+                  <td style="vertical-align: middle;"><b>50.5</b></td>
+                  <td style="vertical-align: middle;"><b>82.9</b></td>
+                  <td style="vertical-align: middle;"><b>92.1</b></td>
+                  <td style="vertical-align: middle;">46.1</td>
+                  <td style="vertical-align: middle;">80.9</td>
+                  <td style="vertical-align: middle;"><b>93.3</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://github.com/OpenGVLab/InternVL" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">InternVL2 (A)
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">Shanghai AI Lab</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">8B</td>
+                  <td style="vertical-align: middle;">&infin;</td>
+                  <td style="vertical-align: middle;">2024/07/04</td>
+                  <td style="vertical-align: middle;">68.8</td>
+                  <td style="vertical-align: middle;">90.6</td>
+                  <td style="vertical-align: middle;">95.8</td>
+                  <td style="vertical-align: middle;">62.3</td>
+                  <td style="vertical-align: middle;">87.6</td>
+                  <td style="vertical-align: middle;">93.2</td>
+                  <td style="vertical-align: middle;">71.2</td>
+                  <td style="vertical-align: middle;">92.4</td>
+                  <td style="vertical-align: middle;">96.3</td>
+                  <td style="vertical-align: middle;">66.8</td>
+                  <td style="vertical-align: middle;">89.8</td>
+                  <td style="vertical-align: middle;">94.6</td>
+                  <td style="vertical-align: middle;">42.6</td>
+                  <td style="vertical-align: middle;">76.8</td>
+                  <td style="vertical-align: middle;">87.7</td>
+                  <td style="vertical-align: middle;">41.8</td>
+                  <td style="vertical-align: middle;">74.0</td>
+                  <td style="vertical-align: middle;">86.6</td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://github.com/LLaVA-VL/LLaVA-NeXT" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">LLaVA NeXT Video (P)
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">LLaVA NeXT Team</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">&infin;</td>
+                  <td style="vertical-align: middle;">2024/05/10</td>
+                  <td style="vertical-align: middle;">66.9</td>
+                  <td style="vertical-align: middle;">89.4</td>
+                  <td style="vertical-align: middle;">96.0</td>
+                  <td style="vertical-align: middle;">62.7</td>
+                  <td style="vertical-align: middle;">89.2</td>
+                  <td style="vertical-align: middle;">95.4</td>
+                  <td style="vertical-align: middle;">68.0</td>
+                  <td style="vertical-align: middle;">92.0</td>
+                  <td style="vertical-align: middle;">96.2</td>
+                  <td style="vertical-align: middle;">65.0</td>
+                  <td style="vertical-align: middle;">90.0</td>
+                  <td style="vertical-align: middle;">95.9</td>
+                  <td style="vertical-align: middle;">43.3</td>
+                  <td style="vertical-align: middle;">76.9</td>
+                  <td style="vertical-align: middle;">88.9</td>
+                  <td style="vertical-align: middle;">40.1</td>
+                  <td style="vertical-align: middle;">75.4</td>
+                  <td style="vertical-align: middle;">88.7</td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://github.com/PKU-YuanGroup/LanguageBind" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">LanguageBind
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">Peking University</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">528M</td>
+                  <td style="vertical-align: middle;">77</td>
+                  <td style="vertical-align: middle;">2023/10/07</td>
+                  <td style="vertical-align: middle;">64.3</td>
+                  <td style="vertical-align: middle;">91.0</td>
+                  <td style="vertical-align: middle;">96.3</td>
+                  <td style="vertical-align: middle;">59.5</td>
+                  <td style="vertical-align: middle;">88.0</td>
+                  <td style="vertical-align: middle;">95.0</td>
+                  <td style="vertical-align: middle;">64.7</td>
+                  <td style="vertical-align: middle;">90.8</td>
+                  <td style="vertical-align: middle;">96.8</td>
+                  <td style="vertical-align: middle;">61.0</td>
+                  <td style="vertical-align: middle;">87.2</td>
+                  <td style="vertical-align: middle;">94.5</td>
+                  <td style="vertical-align: middle;">39.8</td>
+                  <td style="vertical-align: middle;">77.3</td>
+                  <td style="vertical-align: middle;">90.5</td>
+                  <td style="vertical-align: middle;">42.2</td>
+                  <td style="vertical-align: middle;">77.6</td>
+                  <td style="vertical-align: middle;">91.7</td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://github.com/beichenzbc/Long-CLIP" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">Long-CLIP L/14
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">Shanghai AI Lab</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">428M</td>
+                  <td style="vertical-align: middle;">248</td>
+                  <td style="vertical-align: middle;">2024/03/22</td>
+                  <td style="vertical-align: middle;">62.7</td>
+                  <td style="vertical-align: middle;">88.8</td>
+                  <td style="vertical-align: middle;">95.7</td>
+                  <td style="vertical-align: middle;">60.3</td>
+                  <td style="vertical-align: middle;">88.8</td>
+                  <td style="vertical-align: middle;">94.9</td>
+                  <td style="vertical-align: middle;">65.6</td>
+                  <td style="vertical-align: middle;">90.9</td>
+                  <td style="vertical-align: middle;">96.0</td>
+                  <td style="vertical-align: middle;">61.0</td>
+                  <td style="vertical-align: middle;">88.3</td>
+                  <td style="vertical-align: middle;">94.4</td>
+                  <td style="vertical-align: middle;">33.2</td>
+                  <td style="vertical-align: middle;">68.8</td>
+                  <td style="vertical-align: middle;">81.6</td>
+                  <td style="vertical-align: middle;">34.5</td>
+                  <td style="vertical-align: middle;">71.9</td>
+                  <td style="vertical-align: middle;">86.6</td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://github.com/OpenBMB/MiniCPM-V" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">MiniCPM-V 2.6 (A)
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">OpenBMB</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">8B</td>
+                  <td style="vertical-align: middle;">&infin;</td>
+                  <td style="vertical-align: middle;">2024/08/06</td>
+                  <td style="vertical-align: middle;">62.7</td>
+                  <td style="vertical-align: middle;">90.0</td>
+                  <td style="vertical-align: middle;">95.8</td>
+                  <td style="vertical-align: middle;">58.8</td>
+                  <td style="vertical-align: middle;">88.9</td>
+                  <td style="vertical-align: middle;">95.7</td>
+                  <td style="vertical-align: middle;">63.6</td>
+                  <td style="vertical-align: middle;">90.5</td>
+                  <td style="vertical-align: middle;">96.0</td>
+                  <td style="vertical-align: middle;">62.4</td>
+                  <td style="vertical-align: middle;">90.3</td>
+                  <td style="vertical-align: middle;">96.2</td>
+                  <td style="vertical-align: middle;">44.9</td>
+                  <td style="vertical-align: middle;">80.8</td>
+                  <td style="vertical-align: middle;">91.2</td>
+                  <td style="vertical-align: middle;">41.2</td>
+                  <td style="vertical-align: middle;">77.9</td>
+                  <td style="vertical-align: middle;">90.6</td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://github.com/beichenzbc/Long-CLIP" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">Long-CLIP B/16
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">Shanghai AI Lab</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">150M</td>
+                  <td style="vertical-align: middle;">248</td>
+                  <td style="vertical-align: middle;">2024/03/22</td>
+                  <td style="vertical-align: middle;">59.2</td>
+                  <td style="vertical-align: middle;">85.3</td>
+                  <td style="vertical-align: middle;">92.1</td>
+                  <td style="vertical-align: middle;">55.8</td>
+                  <td style="vertical-align: middle;">84.7</td>
+                  <td style="vertical-align: middle;">92.9</td>
+                  <td style="vertical-align: middle;">62.5</td>
+                  <td style="vertical-align: middle;">86.0</td>
+                  <td style="vertical-align: middle;">92.7</td>
+                  <td style="vertical-align: middle;">53.8</td>
+                  <td style="vertical-align: middle;">84.1</td>
+                  <td style="vertical-align: middle;">92.7</td>
+                  <td style="vertical-align: middle;">32.0</td>
+                  <td style="vertical-align: middle;">65.4</td>
+                  <td style="vertical-align: middle;">79.3</td>
+                  <td style="vertical-align: middle;">29.7</td>
+                  <td style="vertical-align: middle;">67.3</td>
+                  <td style="vertical-align: middle;">84.1</td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://github.com/LLaVA-VL/LLaVA-NeXT" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">LLaVA NeXT Video (A)
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">LLaVA NeXT Team</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">&infin;</td>
+                  <td style="vertical-align: middle;">2024/05/10</td>
+                  <td style="vertical-align: middle;">52.2</td>
+                  <td style="vertical-align: middle;">84.3</td>
+                  <td style="vertical-align: middle;">91.3</td>
+                  <td style="vertical-align: middle;">53.7</td>
+                  <td style="vertical-align: middle;">82.9</td>
+                  <td style="vertical-align: middle;">90.5</td>
+                  <td style="vertical-align: middle;">57.0</td>
+                  <td style="vertical-align: middle;">86.1</td>
+                  <td style="vertical-align: middle;">94.1</td>
+                  <td style="vertical-align: middle;">55.0</td>
+                  <td style="vertical-align: middle;">83.5</td>
+                  <td style="vertical-align: middle;">91.9</td>
+                  <td style="vertical-align: middle;">36.1</td>
+                  <td style="vertical-align: middle;">70.6</td>
+                  <td style="vertical-align: middle;">84.7</td>
+                  <td style="vertical-align: middle;">34.7</td>
+                  <td style="vertical-align: middle;">67.5</td>
+                  <td style="vertical-align: middle;">83.1</td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a href="https://github.com/openai/CLIP"
+                        class="ext-link" style="font-size: 16px; margin-left: 5px;">CLIP L/14
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">OpenAI</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">428M</td>
+                  <td style="vertical-align: middle;">77</td>
+                  <td style="vertical-align: middle;">2021/02/26</td>
+                  <td style="vertical-align: middle;">51.2</td>
+                  <td style="vertical-align: middle;">83.4</td>
+                  <td style="vertical-align: middle;">90.6</td>
+                  <td style="vertical-align: middle;">54.7</td>
+                  <td style="vertical-align: middle;">86.9</td>
+                  <td style="vertical-align: middle;">93.6</td>
+                  <td style="vertical-align: middle;">49.0</td>
+                  <td style="vertical-align: middle;">81.9</td>
+                  <td style="vertical-align: middle;">91.4</td>
+                  <td style="vertical-align: middle;">55.4</td>
+                  <td style="vertical-align: middle;">85.6</td>
+                  <td style="vertical-align: middle;">93.0</td>
+                  <td style="vertical-align: middle;">33.5</td>
+                  <td style="vertical-align: middle;">70.3</td>
+                  <td style="vertical-align: middle;">84.0</td>
+                  <td style="vertical-align: middle;">39.7</td>
+                  <td style="vertical-align: middle;">76.2</td>
+                  <td style="vertical-align: middle;">87.9</td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a href="https://github.com/openai/CLIP"
+                        class="ext-link" style="font-size: 16px; margin-left: 5px;">CLIP B/16
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">OpenAI</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">150M</td>
+                  <td style="vertical-align: middle;">77</td>
+                  <td style="vertical-align: middle;">2021/02/26</td>
+                  <td style="vertical-align: middle;">45.7</td>
+                  <td style="vertical-align: middle;">79.6</td>
+                  <td style="vertical-align: middle;">89.1</td>
+                  <td style="vertical-align: middle;">48.4</td>
+                  <td style="vertical-align: middle;">82.4</td>
+                  <td style="vertical-align: middle;">90.8</td>
+                  <td style="vertical-align: middle;">45.6</td>
+                  <td style="vertical-align: middle;">79.0</td>
+                  <td style="vertical-align: middle;">89.2</td>
+                  <td style="vertical-align: middle;">47.6</td>
+                  <td style="vertical-align: middle;">80.9</td>
+                  <td style="vertical-align: middle;">90.8</td>
+                  <td style="vertical-align: middle;">30.3</td>
+                  <td style="vertical-align: middle;">65.1</td>
+                  <td style="vertical-align: middle;">79.8</td>
+                  <td style="vertical-align: middle;">35.8</td>
+                  <td style="vertical-align: middle;">71.0</td>
+                  <td style="vertical-align: middle;">85.8</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p style="margin-top: -20px;">
+              <strong style="font-size: 18px;">Date</strong> indicates the release date of open-source models
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              &infin; indicates a very large number
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{xu2024finegrainedvideotextretrievalnew,
+  title={Fine-grained Video-Text Retrieval: A New Benchmark and Method}, 
+  author={Yifan Xu and Xinhao Li and Yichun Yang and Rui Huang and Limin Wang},
+  year={2024},
+  eprint={2501.00513},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2501.00513}, 
+}
+}</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://arxiv.org/pdf/2501.00513">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+            <p>
+              This website is based on the template from <a
+                href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and we adopt some code from <a
+                href="https://tarsier-vlm.github.io">Tarsier</a>. We sincerely thank the above two projects for their
+              great work.
+            </p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
